@@ -43,17 +43,17 @@ app.get('/musicalinst/:brand', (req, res) => {
 app.post('/musicalinst', (req, res) => {
     console.log("Inserting a Musical Instrument in the database")
 
-    let _isAvailable = false;
-    if (req.body._isAvailable === 'true') {
-        _isAvailable = true;
+    let isAvailable = false;
+    if (req.body.isAvailable === 'true') {
+        isAvailable = true;
     }
 
     let musicalinst = new MusicalInstruments({
-        price = parseInt(req.body.price),
-        brand = req.body.brand,
-        type = req.body.type,                
-        condition = req.body.condition,
-        isAvailable = _isAvailable
+        price: parseInt(req.body.price),
+        brand: req.body.brand,
+        type: req.body.type,                
+        condition: req.body.condition,
+        isAvailable: isAvailable
     });
 
     musicalinst.save(err => {
