@@ -49,9 +49,10 @@ app.post('/musicalinst', (req, res) => {
     }
 
     let musicalinst = new MusicalInstruments({
-        price: parseInt(req.body.price),
+        
+        type: req.body.type,
         brand: req.body.brand,
-        type: req.body.type,                
+        price: parseInt(req.body.price),
         condition: req.body.condition,
         isAvailable: isAvailable
     });
@@ -108,8 +109,7 @@ app.delete('/musicalinst/:brand', (req, res) => {
 
 //start the server
 app.listen(port, () => {
-    //change the link to your database
-    mongoose.connect('mongodb+srv://Luanahf:1223!Mongo@musicalinstapi.evr2b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').
+    mongoose.connect('mongodb+srv://Luanahf:1223!Mongo@musicalinstapi.xkapt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').
         catch(error => console.log(error));
     console.log(`Example app listening at http://localhost:${port}`)
 })
